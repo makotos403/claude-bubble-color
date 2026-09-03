@@ -1,0 +1,43 @@
+/*
+ * Injected into claude.ai as a content-script stylesheet (privileged: not
+ * subject to the page's CSP). Gated on <html data-cbt="on">, set by content.js
+ * only while the extension is enabled — toggle off and nothing here matches.
+ *
+ * How the tint attaches (claude.ai, 2026):
+ *   <div class="… rounded-card px-lg py-md bg-[var(--cds-bg-user-message)]">  ← the bubble
+ *     <div><div><div data-testid="user-message"> … </div></div></div>
+ *   </div>
+ * The bubble sits a few unstyled wrappers above [data-testid="user-message"],
+ * so we hook it two ways, both keyed on the design token claude.ai itself uses
+ * for this exact surface:
+ *   1. re-point the `--cds-bg-user-message` token  → recolors the bubble at the source
+ *   2. match the bubble by that token's utility class → radius + accent bar
+ * If a future build renames the token, update the string in both places here
+ * (see README "更新耐性 / Resilience"). Worst case on a miss: no tint, page intact.
+ */
+
+:root[data-cbt="on"] {
+  --cbt-fill: color-mix(
+    in srgb,
+    var(--cbt-bg, #fff1c1) calc(var(--cbt-bg-alpha, 1) * 100%),
+    transparent
+  );
+  --cds-bg-user-message: var(--cbt-fill) !important;
+}
+
+:root[data-cbt="on"] [class*="cds-bg-user-message"] {
+  background-color: var(--cbt-fill) !important;
+  border-radius: var(--cbt-radius, 14px) !important;
+  /* accent bar as an inset shadow: sits in the bubble's existing left padding,
+     so it never shifts the layout the way a border would */
+  box-shadow: inset var(--cbt-accent-width, 0px) 0 0 0
+    var(--cbt-accent, transparent) !important;
+}
+
+/* text color only when the user turned it on (content.js sets data-cbt-text).
+   claude.ai colors the message <p> via its own `text-primary` utility, not by
+   inheritance, so the override has to reach every descendant — hence the `*`. */
+:root[data-cbt-text="on"] :is([class*="cds-bg-user-message"], [data-testid="user-message"]),
+:root[data-cbt-text="on"] :is([class*="cds-bg-user-message"], [data-testid="user-message"]) * {
+  color: var(--cbt-text) !important;
+}

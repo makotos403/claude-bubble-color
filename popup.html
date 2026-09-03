@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="head">
+        <h1 id="app-title"></h1>
+        <label class="switch">
+          <input type="checkbox" id="enabled" />
+          <span class="track" aria-hidden="true"></span>
+        </label>
+      </header>
+      <p class="tagline" id="tagline"></p>
+
+      <div class="preview" id="preview" data-cbt="on">
+        <div class="pv-row pv-claude"><span id="pv-claude"></span></div>
+        <div class="pv-row pv-me"><span class="pv-bubble" id="pv-user"></span></div>
+      </div>
+
+      <section class="grp">
+        <h2 id="h-presets"></h2>
+        <div class="swatches" id="swatches"></div>
+      </section>
+
+      <section class="grp">
+        <h2 id="h-bg"></h2>
+        <label class="row inline">
+          <span id="l-bgColor"></span>
+          <span class="field">
+            <input type="text" id="bgColorHex" maxlength="7" spellcheck="false" pattern="#[0-9a-fA-F]{6}" />
+            <input type="color" id="bgColor" aria-labelledby="l-bgColor" />
+          </span>
+        </label>
+        <label class="row">
+          <span class="row-top">
+            <span id="l-opacity"></span><span class="val" id="v-opacity"></span>
+          </span>
+          <input type="range" id="bgOpacity" min="20" max="100" step="5" />
+        </label>
+        <label class="row">
+          <span class="row-top">
+            <span id="l-radius"></span><span class="val" id="v-radius"></span>
+          </span>
+          <input type="range" id="radius" min="0" max="28" step="1" />
+        </label>
+      </section>
+
+      <section class="grp">
+        <label class="row check">
+          <input type="checkbox" id="accentEnabled" />
+          <span id="l-accentToggle"></span>
+        </label>
+        <fieldset class="sub" id="accent-fields">
+          <label class="row inline">
+            <span id="l-accentColor"></span>
+            <span class="field">
+              <input type="text" id="accentColorHex" maxlength="7" spellcheck="false" pattern="#[0-9a-fA-F]{6}" />
+              <input type="color" id="accentColor" aria-labelledby="l-accentColor" />
+            </span>
+          </label>
+          <label class="row">
+            <span class="row-top">
+              <span id="l-accentWidth"></span><span class="val" id="v-accentWidth"></span>
+            </span>
+            <input type="range" id="accentWidth" min="1" max="8" step="1" />
+          </label>
+        </fieldset>
+      </section>
+
+      <section class="grp">
+        <label class="row check">
+          <input type="checkbox" id="textEnabled" />
+          <span id="l-textToggle"></span>
+        </label>
+        <fieldset class="sub" id="text-fields">
+          <label class="row inline">
+            <span id="l-textColor"></span>
+            <span class="field">
+              <input type="text" id="textColorHex" maxlength="7" spellcheck="false" pattern="#[0-9a-fA-F]{6}" />
+              <input type="color" id="textColor" aria-labelledby="l-textColor" />
+            </span>
+          </label>
+        </fieldset>
+      </section>
+
+      <section class="grp">
+        <h2 id="h-language"></h2>
+        <div class="radios" id="lang-radios">
+          <label><input type="radio" name="lang" value="auto" /><span id="o-lang-auto"></span></label>
+          <label><input type="radio" name="lang" value="ja" /><span id="o-lang-ja"></span></label>
+          <label><input type="radio" name="lang" value="en" /><span id="o-lang-en"></span></label>
+        </div>
+      </section>
+
+      <p class="note" id="note"></p>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "appName": {
+    "message": "Claudeふきだし色"
+  },
+  "appShortName": {
+    "message": "ふきだし色"
+  },
+  "appDesc": {
+    "message": "claude.ai の会話画面で自分の発言に背景色を付け、Claude の返答と見分けやすくする拡張機能。長い会話でも自分の発言を見失いません。非公式。日英対応。"
+  }
+}

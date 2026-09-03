@@ -1,0 +1,11 @@
+{
+  "appName": {
+    "message": "Claude Bubble Color"
+  },
+  "appShortName": {
+    "message": "Bubble Color"
+  },
+  "appDesc": {
+    "message": "Give your own messages in claude.ai a background color so they stand out from Claude's replies in long chats. Unofficial. EN & JA."
+  }
+}
