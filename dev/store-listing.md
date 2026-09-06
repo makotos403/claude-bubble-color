@@ -86,13 +86,20 @@ Anthropic とは関係のない非公式ツールです。「Claude」は Anthro
 | 用途 | 仕様 | 状態 |
 |---|---|---|
 | Store icon | 128×128 PNG | ✅ `icons/icon128.png` |
-| Screenshot | 1280×800 or 640×400、1〜5枚 | ⬜ 要撮影（下記） |
-| Small promo tile | 440×280 | ⬜ 任意 |
-| Marquee promo tile | 1400×560 | ⬜ 任意 |
+| Screenshot | 1280×800、JPEG（アルファなし） | ✅ `dev/screenshots/` に4枚 |
+| Small promo tile | 440×280 | ⬜ 任意（当面スキップ） |
+| Marquee promo tile | 1400×560 | ⬜ 任意（当面スキップ） |
 
-**スクリーンショット案（2枚）**
-1. claude.ai の会話：自分のふきだしが色付き（プリセット butter か peach）。Before/After が分かる構図
-2. ポップアップ：カラーピッカー＋プリセット＋ライブプレビューが写ったもの
+**スクリーンショット（`dev/screenshots/`）**
+
+| ファイル | 内容 | アップロード先 |
+|---|---|---|
+| `en-2-popup.jpg` | ポップアップ＋色付き会話（peach プリセット） | 英語リスト **1枚目** |
+| `en-1-chat.jpg` | 色付き会話のみ | 英語リスト 2枚目 |
+| `ja-2-popup.jpg` | 同上・日本語 UI | 日本語リスト 1枚目 |
+| `ja-1-chat.jpg` | 同上・日本語 | 日本語リスト 2枚目 |
+
+1枚目はポップアップ版（結果＋操作 UI が同時に見える）。会話のみ版を先にしても可。
 
 ---
 
