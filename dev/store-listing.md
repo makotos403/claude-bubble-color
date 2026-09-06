@@ -114,8 +114,8 @@ Anthropic とは関係のない非公式ツールです。「Claude」は Anthro
 
 **小プロモタイル**（CONVENTIONS §10.3.2）
 
-- ロケール別にできない → **全言語共通の1枚**。文字は焼き込まない（ストアが名前を隣に出す）
-- 原本: `dev/store/raw/promo_src.png`（Gemini 作図・文字なし・単一の吹き出し＋オレンジ帯）
+- ロケール別にできない → **全言語共通の1枚**。横並びロックアップ（単色背景／左 吹き出し／右 英語ワードマーク "Bubble Color for Claude"）
+- 原本: `dev/store/raw/promo_src.png`（Gemini がロックアップ全体を生成・背景 `#FBF1E5`）
 - 仕上げ: `python dev/make_promo.py`（11:7 トリミング → 440×280 → PNG）→ `dev/store/promo-small.png`
 
 ---

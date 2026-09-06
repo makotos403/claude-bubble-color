@@ -1,10 +1,13 @@
-"""Fit the Gemini promo artwork to the Chrome Web Store small promo tile.
+"""Fit the Gemini promo tile to the Chrome Web Store small promo tile spec.
 
-The small promo tile is a SINGLE global image (unlike screenshots it can't be
-localized), so it carries no wordmark: every store surface already shows the
-localized extension name next to it. This just makes the raw art meet spec —
+House format (CONVENTIONS.md 10.3.2, cf. tomato-pop): solid background, an
+icon-style illustration on the left, an English wordmark on the right, as a
+single global image (the tile can't be localized). Gemini renders the whole
+lockup including the short wordmark; this script only makes it meet spec:
 center-crop to 11:7, resize to exactly 440x280, save as 24-bit PNG (no alpha).
-See CONVENTIONS.md 10.3.2.
+
+If a future Gemini pass can't render clean text, fall back to art-only + a
+PIL-composited wordmark (Segoe UI Bold / Yu Gothic Bold).
 """
 
 from PIL import Image
