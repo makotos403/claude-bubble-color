@@ -7,7 +7,7 @@
 > color** so they stand out from Claude's replies in long chats. Unofficial.
 > English & Japanese.
 
-**審査中 / In review** — Chrome ウェブストアに v1.0.0 を申請済み。承認後にストア URL を追記。
+**公開中 / Published** — [Chrome ウェブストア](https://chromewebstore.google.com/detail/bubble-color-for-claude/opfoggpkdjfghmpihdkdbclnfhehmcgh)（v1.0.0）
 
 ---
 
