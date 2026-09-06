@@ -7,7 +7,7 @@
 > color** so they stand out from Claude's replies in long chats. Unofficial.
 > English & Japanese.
 
-**開発中 / Work in progress** — まだストア公開していません。
+**審査中 / In review** — Chrome ウェブストアに v1.0.0 を申請済み。承認後にストア URL を追記。
 
 ---
 

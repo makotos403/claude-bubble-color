@@ -86,18 +86,30 @@ Anthropic とは関係のない非公式ツールです。「Claude」は Anthro
 | 用途 | 仕様 | 状態 |
 |---|---|---|
 | Store icon | 128×128 PNG | ✅ `icons/icon128.png` |
-| Screenshot | 1280×800、JPEG（アルファなし） | ✅ `dev/screenshots/` に4枚 |
+| Screenshot | 1280×800・24bit PNG・アルファなし | ✅ `dev/store/` に4枚（帯入り） |
 | Small promo tile | 440×280 | ⬜ 任意（当面スキップ） |
 | Marquee promo tile | 1400×560 | ⬜ 任意（当面スキップ） |
 
-**スクリーンショット（`dev/screenshots/`）**
+**スクリーンショット**（CONVENTIONS §10.3.1）
+
+- 原本: `dev/store/raw/ss0{1,2}_{en,ja}.png`（`ss01`=会話, `ss02`=ポップアップ）
+  - `ss01_ja` はアドレスバーの URL を目隠し（他3枚と揃える）
+- 帯入りアップロード用: `dev/store/<順番>-<slug>-<lang>.png` — `python dev/caption_shots.py` で生成
+- 帯: 画面下部・全幅 104px / `#3A3330`・上辺に 3px `#E5813D`（= 拡張の UI パレット）/ 文字 `#FBF7F2` Yu Gothic Bold 26px
 
 | ファイル | 内容 | アップロード先 |
 |---|---|---|
-| `en-2-popup.jpg` | ポップアップ＋色付き会話（peach プリセット） | 英語リスト **1枚目** |
-| `en-1-chat.jpg` | 色付き会話のみ | 英語リスト 2枚目 |
-| `ja-2-popup.jpg` | 同上・日本語 UI | 日本語リスト 1枚目 |
-| `ja-1-chat.jpg` | 同上・日本語 | 日本語リスト 2枚目 |
+| `1-popup-en.png` | ポップアップ＋色付き会話（peach） | 英語リスト **1枚目** |
+| `2-chat-en.png` | 色付き会話のみ | 英語リスト 2枚目 |
+| `1-popup-ja.png` | 同上・日本語 UI | 日本語リスト 1枚目 |
+| `2-chat-ja.png` | 同上・日本語 | 日本語リスト 2枚目 |
+
+帯の文言:
+
+| | JA | EN |
+|---|---|---|
+| 1-popup | 自分の発言に色を。プリセットとライブプレビュー付き | Pick your color — presets and a live preview |
+| 2-chat | 長い会話でも自分の発言をひと目で見分けられる | Spot your own messages at a glance in long chats |
 
 1枚目はポップアップ版（結果＋操作 UI が同時に見える）。会話のみ版を先にしても可。
 
