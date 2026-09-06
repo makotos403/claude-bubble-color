@@ -1,4 +1,4 @@
-# プライバシーポリシー / Privacy Policy — Claudeふきだし色 / Claude Bubble Color
+# プライバシーポリシー / Privacy Policy — ふきだし色 for Claude / Bubble Color for Claude
 
 **最終更新日 / Last updated: 2026-09-03**
 
@@ -6,7 +6,7 @@
 
 ## 日本語
 
-Chrome拡張機能「Claudeふきだし色」（以下「本拡張機能」）における
+Chrome拡張機能「ふきだし色 for Claude」（以下「本拡張機能」）における
 データの取り扱いについて説明します。
 
 ### 1. 収集・送信するデータ
@@ -50,7 +50,7 @@ Chrome拡張機能「Claudeふきだし色」（以下「本拡張機能」）�
 
 ## English
 
-This document describes how the "Claude Bubble Color" Chrome extension
+This document describes how the "Bubble Color for Claude" Chrome extension
 ("the Extension") handles data.
 
 ### 1. Data collected or transmitted

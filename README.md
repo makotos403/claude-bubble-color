@@ -1,4 +1,4 @@
-# Claudeふきだし色 / Claude Bubble Color
+# ふきだし色 for Claude / Bubble Color for Claude
 
 > claude.ai の会話画面で、**自分の発言のふきだしに背景色**を付けて、Claude の返答と
 > 見分けやすくする Chrome 拡張機能（Manifest V3）。非公式。日本語・英語対応。
