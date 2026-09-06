@@ -87,7 +87,7 @@ Anthropic とは関係のない非公式ツールです。「Claude」は Anthro
 |---|---|---|
 | Store icon | 128×128 PNG | ✅ `icons/icon128.png` |
 | Screenshot | 1280×800・24bit PNG・アルファなし | ✅ `dev/store/` に4枚（帯入り） |
-| Small promo tile | 440×280・24bit PNG・アルファなし | ✅ `dev/store/promo-small-{ja,en}.png`（Gemini 素材 → `dev/make_promo.py`） |
+| Small promo tile | 440×280・24bit PNG・アルファなし・**全言語共通1枚** | ✅ `dev/store/promo-small.png`（Gemini 素材 → `dev/make_promo.py`） |
 
 **スクリーンショット**（CONVENTIONS §10.3.1）
 
@@ -114,9 +114,9 @@ Anthropic とは関係のない非公式ツールです。「Claude」は Anthro
 
 **小プロモタイル**（CONVENTIONS §10.3.2）
 
+- ロケール別にできない → **全言語共通の1枚**。文字は焼き込まない（ストアが名前を隣に出す）
 - 原本: `dev/store/raw/promo_src.png`（Gemini 作図・文字なし・単一の吹き出し＋オレンジ帯）
-- 仕上げ: `python dev/make_promo.py` → `dev/store/promo-small-{ja,en}.png`
-- ワードマークは左下のクリーム角丸チップ＋オレンジのアクセントバー、二色組版（`#3A3330` ＋ `#E5813D` / Yu Gothic Bold）
+- 仕上げ: `python dev/make_promo.py`（11:7 トリミング → 440×280 → PNG）→ `dev/store/promo-small.png`
 
 ---
 
