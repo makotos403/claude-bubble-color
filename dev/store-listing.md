@@ -2,7 +2,9 @@
 
 出荷物ではない（`dev/` はストア zip から除外）。申請フォームに貼る内容と手順を集約。
 
-- **パッケージ**: `../claude-bubble-color-v1.0.0.zip` — `powershell -ExecutionPolicy Bypass -File dev/pack.ps1` で生成
+- **パッケージ**: `../claude-bubble-color-v1.0.1.zip` — `powershell -ExecutionPolicy Bypass -File dev/pack.ps1` で生成
+  - v1.0.1 の変更: フラットな新アイコン（`dev/make_icons.py`）。コードは無変更
+- **v1.0.0 → v1.0.1**: アイコンはパッケージ内なので新 zip でフル再審査。プロモタイル（掲載情報）も同時に差し替え
 - **プライバシーポリシー URL**: https://github.com/makotos403/claude-bubble-color/blob/main/PRIVACY.md
 - **カテゴリ**: Functionality & UI（代替: Accessibility）
 - **言語**: English, Japanese
@@ -172,7 +174,7 @@ hosted code is executed.
 
 1. Developer Dashboard（https://chrome.google.com/webstore/devconsole）にログイン
    - 初回のみ $5 の登録料（tomato-pop で登録済みなら不要）
-2. 「新しいアイテム」→ `claude-bubble-color-v1.0.0.zip` をアップロード
+2. 「新しいアイテム」→ `claude-bubble-color-v1.0.1.zip` をアップロード
 3. Store listing / Privacy / Distribution を上記の内容で埋める
 4. スクリーンショット2枚をアップロード
 5. 「審査のために送信」

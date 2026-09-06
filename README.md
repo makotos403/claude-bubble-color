@@ -7,7 +7,7 @@
 > color** so they stand out from Claude's replies in long chats. Unofficial.
 > English & Japanese.
 
-**公開中 / Published** — [Chrome ウェブストア](https://chromewebstore.google.com/detail/bubble-color-for-claude/opfoggpkdjfghmpihdkdbclnfhehmcgh)（v1.0.0）
+**公開中 / Published** — [Chrome ウェブストア](https://chromewebstore.google.com/detail/bubble-color-for-claude/opfoggpkdjfghmpihdkdbclnfhehmcgh)（v1.0.0 公開中 / v1.0.1 審査中：フラットな新アイコン）
 
 ---
 
