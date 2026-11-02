@@ -6,6 +6,16 @@
   </head>
   <body>
     <div class="app">
+      <section id="review" class="review" hidden>
+        <p class="review-title" id="review-title"></p>
+        <p class="review-body" id="review-body"></p>
+        <div class="review-actions">
+          <a class="review-rate" id="review-rate" target="_blank" rel="noopener"></a>
+          <button type="button" class="review-later" id="review-later"></button>
+        </div>
+        <button type="button" class="review-never" id="review-never"></button>
+      </section>
+
       <header class="head">
         <h1 id="app-title"></h1>
         <label class="switch">
@@ -96,6 +106,7 @@
       </section>
 
       <p class="note" id="note"></p>
+      <a class="rate-link" id="rate-link" target="_blank" rel="noopener"></a>
     </div>
 
     <script type="module" src="popup.js"></script>

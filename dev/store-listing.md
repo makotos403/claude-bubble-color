@@ -2,7 +2,8 @@
 
 出荷物ではない（`dev/` はストア zip から除外）。申請フォームに貼る内容と手順を集約。
 
-- **パッケージ**: `../claude-bubble-color-v1.0.1.zip` — `powershell -ExecutionPolicy Bypass -File dev/pack.ps1` で生成
+- **パッケージ**: `../claude-bubble-color-v1.1.0.zip` — `powershell -ExecutionPolicy Bypass -File dev/pack.ps1` で生成
+  - v1.1.0 の変更: 評価のお願い（`review.js`）を追加。権限追加なし・外部通信なし
   - v1.0.1 の変更: フラットな新アイコン（`dev/make_icons.py`）。コードは無変更
 - **v1.0.0 → v1.0.1**: アイコンはパッケージ内なので新 zip でフル再審査。プロモタイル（掲載情報）も同時に差し替え
 - **プライバシーポリシー URL**: https://github.com/makotos403/claude-bubble-color/blob/main/PRIVACY.md
@@ -54,7 +55,7 @@ FEATURES
 PRIVACY
 • No external servers, analytics, or tracking
 • It never reads your conversations — it only applies a color
-• The only thing stored is your color settings
+• Stored on your device: your color settings and a note of whether you've answered the one-time rating card
 • Full policy: https://github.com/makotos403/claude-bubble-color/blob/main/PRIVACY.md
 
 Not affiliated with Anthropic. "Claude" is a trademark of Anthropic.
@@ -77,7 +78,7 @@ claude.ai の長い会話は流し読みしづらい — 自分の発言と Clau
 プライバシー
 ・外部サーバー・アクセス解析・トラッキングなし
 ・会話の内容は一切読み取らず、色を付けるだけ
-・保存するのは色の設定のみ
+・保存するのは色の設定と、評価のお願いへの回答状況のみ
 ・詳細: https://github.com/makotos403/claude-bubble-color/blob/main/PRIVACY.md
 
 Anthropic とは関係のない非公式ツールです。「Claude」は Anthropic の商標です。
@@ -139,7 +140,10 @@ Claude's replies. It does nothing else.
 ```
 Stores the user's color preferences (fill color, strength, corner radius,
 optional edge bar and text color, on/off, UI language) and syncs them across
-the user's own Chrome installations. Nothing else is stored.
+the user's own Chrome installations. Also stores, locally only (not synced),
+the time the popup was first opened and the user's answer to the one-time
+"please rate" card, so the card is shown at most a few times. Nothing else is
+stored.
 ```
 
 **Host permission — `https://claude.ai/*`**（content script 由来）
@@ -174,7 +178,7 @@ hosted code is executed.
 
 1. Developer Dashboard（https://chrome.google.com/webstore/devconsole）にログイン
    - 初回のみ $5 の登録料（tomato-pop で登録済みなら不要）
-2. 「新しいアイテム」→ `claude-bubble-color-v1.0.1.zip` をアップロード
+2. 「新しいアイテム」→ `claude-bubble-color-v1.1.0.zip` をアップロード
 3. Store listing / Privacy / Distribution を上記の内容で埋める
 4. スクリーンショット2枚をアップロード
 5. 「審査のために送信」
@@ -188,3 +192,12 @@ powershell -ExecutionPolicy Bypass -File dev/pack.ps1
 manifest の `version` を読んで `../claude-bubble-color-v<version>.zip` を作る。
 `git ls-files` から `dev/` と repo ドキュメントを除いた「Chrome が読むファイルだけ」を、
 パス区切り `/` で固める（`Compress-Archive` は `\` になり CWS で問題が出るため使わない）。
+
+---
+
+## v1.1.0 提出メモ（評価のお願い）
+
+- 変更: ポップアップに評価のお願いカード＋最下段に常設リンク。条件は `review.js`（初回ポップアップ表示から24時間後・「あとで」は5日後を2回まで）
+- 保存するもの: `chrome.storage.local` に初回表示日時と回答のみ（外部送信なし）。Privacy practices の「収集しない」は変更なし
+- 権限追加なし → 既存ユーザーは再承認不要で自動更新。保存済みの設定は不変
+- 掲載文: Description の PRIVACY 節の「保存するもの」の一文を上記の内容に更新済み（en / ja）。スクショの変更なし

@@ -7,7 +7,7 @@
 > color** so they stand out from Claude's replies in long chats. Unofficial.
 > English & Japanese.
 
-**公開中 / Published** — [Chrome ウェブストア](https://chromewebstore.google.com/detail/bubble-color-for-claude/opfoggpkdjfghmpihdkdbclnfhehmcgh)（v1.0.1）
+**公開中 / Published** — [Chrome ウェブストア](https://chromewebstore.google.com/detail/bubble-color-for-claude/opfoggpkdjfghmpihdkdbclnfhehmcgh)（v1.1.0）
 
 ---
 
@@ -18,6 +18,7 @@
 - 任意で **左端の色帯**・**文字色**も指定可能
 - ポップアップに**ライブプレビュー**。変更は自動保存、開いている claude.ai に即反映
 - `chrome.storage.sync` 対応 — 同じ Google アカウントの Chrome 間で設定が同期
+- 初回利用の翌日以降、ポップアップに控えめな評価のお願いを表示（「あとで」「今後表示しない」可。最下段に常設リンクあり）
 - 外部通信なし — すべてブラウザ内で完結（[PRIVACY.md](PRIVACY.md)）
 
 ## インストール（開発版）/ Install (dev)
@@ -37,7 +38,8 @@
 | `content.js` | claude.ai で設定を読み、`<html>` に CSS 変数を書き込み `data-cbt` を切替。`defaults.js` は動的 import |
 | `tint.css` | `[data-testid="user-message"]` に色を当てる content-script スタイル |
 | `defaults.js` | 設定の型・プリセット・`settingsToVars()`（純粋関数） |
-| `popup.*` | 設定 UI ＋ライブプレビュー |
+| `popup.*` | 設定 UI ＋ライブプレビュー ＋評価のお願い |
+| `review.js` | 評価のお願いを出す条件の純粋関数（初回から24時間／「あとで」5日後・2回まで） |
 | `i18n.js` | ポップアップ文言の実行時ローダ |
 | `strings.{ja,en}.json` | ポップアップの文言辞書 |
 | `_locales/{en,ja}/messages.json` | ストア表示名・説明（`chrome.i18n`） |
@@ -47,7 +49,8 @@
 ## 開発 / Development
 
 ```
-node dev/tint.test.mjs   # settingsToVars / normalize の純粋関数テスト
+node dev/tint.test.mjs     # settingsToVars / normalize の純粋関数テスト
+node dev/review.test.mjs   # 評価のお願いの出し方（review.js）のテスト
 ```
 
 ## 権限 / Permissions

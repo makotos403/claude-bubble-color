@@ -26,5 +26,11 @@
   "preset.lavender": "ラベンダー",
   "preset.sky": "スカイ",
   "preset.rose": "ローズ",
-  "preset.graphite": "グラファイト"
+  "preset.graphite": "グラファイト",
+  "review.title": "ふきだし色 for Claude をご利用いただきありがとうございます",
+  "review.body": "もしお役に立てていましたら、ストアで評価をいただけると励みになります。よろしくお願いします。",
+  "review.rate": "評価する",
+  "review.later": "あとで",
+  "review.never": "今後表示しない",
+  "settings.rateLink": "★ ストアで評価・レビューを書く"
 }

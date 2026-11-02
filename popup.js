@@ -10,6 +10,7 @@ import {
   settingsToVars,
 } from "./defaults.js";
 import { resolveLang, loadMessages, makeT } from "./i18n.js";
+import { REVIEW_URL, isReviewDue, nextReview } from "./review.js";
 
 const $ = (id) => document.getElementById(id);
 const HEX_RE = /^#[0-9a-fA-F]{6}$/;
@@ -105,11 +106,74 @@ async function localize() {
     const node = $(id);
     if (node) node.textContent = t(key);
   }
+  $("review-title").textContent = t("review.title");
+  $("review-body").textContent = t("review.body");
+  $("review-rate").textContent = t("review.rate");
+  $("review-later").textContent = t("review.later");
+  $("review-never").textContent = t("review.never");
+  $("rate-link").textContent = t("settings.rateLink");
   $("pv-user").textContent = t("preview.you");
   $("pv-claude").textContent = t("preview.claude");
   for (const b of document.querySelectorAll(".swatch")) {
     b.title = t(`preset.${b.dataset.id}`);
   }
+}
+
+// --- rating request (see review.js for the policy) ---
+
+// Set once the user answers; even if saving failed we never ask again this session.
+let reviewAnswered = false;
+
+async function loadReview() {
+  const { review } = await chrome.storage.local.get("review");
+  return review;
+}
+
+// The clock starts at the first popup open, so nobody is asked on that open.
+// Any storage error means "stay hidden".
+async function renderReview() {
+  let show = false;
+  try {
+    const { firstSeen, review } = await chrome.storage.local.get([
+      "firstSeen",
+      "review",
+    ]);
+    if (firstSeen === undefined) {
+      await chrome.storage.local.set({ firstSeen: Date.now() });
+    } else {
+      show = !reviewAnswered && isReviewDue(Date.now(), firstSeen, review);
+    }
+  } catch (_) {
+    show = false;
+  }
+  $("review").hidden = !show;
+}
+
+// Hide first, then record the choice; a failed write must not block the user.
+async function answerReview(answer) {
+  reviewAnswered = true;
+  $("review").hidden = true;
+  try {
+    await chrome.storage.local.set({
+      review: nextReview(await loadReview(), answer, Date.now()),
+    });
+  } catch (_) {
+    /* not saved: the next popup may ask once more, this one will not */
+  }
+}
+
+function wireReview() {
+  const rate = async (e) => {
+    e.preventDefault(); // record the answer first; the new tab would close the popup
+    await answerReview("rate");
+    chrome.tabs.create({ url: REVIEW_URL });
+  };
+  $("review-rate").href = REVIEW_URL;
+  $("rate-link").href = REVIEW_URL;
+  $("review-rate").addEventListener("click", rate);
+  $("rate-link").addEventListener("click", rate);
+  $("review-later").addEventListener("click", () => answerReview("later"));
+  $("review-never").addEventListener("click", () => answerReview("never"));
 }
 
 // --- wiring ---
@@ -204,6 +268,8 @@ chrome.storage.onChanged.addListener((changes, area) => {
   settings = normalize(stored[STORAGE_KEY]);
   buildSwatches();
   wire();
+  wireReview();
   await localize();
   render();
+  await renderReview();
 })();

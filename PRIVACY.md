@@ -1,6 +1,6 @@
 # プライバシーポリシー / Privacy Policy — ふきだし色 for Claude / Bubble Color for Claude
 
-**最終更新日 / Last updated: 2026-09-03**
+**最終更新日 / Last updated: 2026-11-02**
 
 ---
 
@@ -31,6 +31,10 @@ Chrome拡張機能「ふきだし色 for Claude」（以下「本拡張機能」
 - これらは Chrome の `chrome.storage.sync` に保存され、同じ Google アカウントで
   ログインした Chrome 間で同期されます（Google のアカウント同期の仕組みによるものです）
 - 個人を特定する情報は含みません
+
+あわせて、ストアでの評価をお願いする案内を出すタイミングを決めるため、
+**ポップアップを初めて開いた日時**と**案内への回答（評価した／あとで／今後表示しない）**を
+`chrome.storage.local` に保存します。これらは端末内にとどまり、同期も外部送信もされません。
 
 ### 3. 権限の利用目的
 
@@ -70,6 +74,11 @@ options, and UI language.
 - Stored via Chrome's `chrome.storage.sync`, which syncs between Chrome
   installations signed into the same Google account (Chrome's own sync feature)
 - Contains nothing that identifies you
+
+To decide when to show a request to rate the Extension on the Chrome Web Store,
+it also stores **the time the popup was first opened** and **your answer to that
+request** (rated / maybe later / don't show again) in `chrome.storage.local`.
+These stay on your device; they are not synced or sent anywhere.
 
 ### 3. Why each permission is used
 

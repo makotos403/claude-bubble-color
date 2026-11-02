@@ -308,3 +308,68 @@ input[type="checkbox"] {
   line-height: 1.5;
   color: var(--text-dim);
 }
+
+/* ============ rating request ============ */
+.review {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.review-title {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.review-body {
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+.review-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.review-rate,
+.review-later {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.review-rate {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.review-later {
+  background: var(--surface);
+  color: var(--text);
+}
+.review-never {
+  display: block;
+  margin: 8px auto 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 11px;
+  color: var(--text-dim);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.rate-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text-dim);
+}
